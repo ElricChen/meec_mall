@@ -1,0 +1,18 @@
+# mall-product
+server:
+  port: 10000
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.102:3306/meec_mall_pms
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis-plus:
+#  默认 >> classpath*:/mapper/**/*.xml (classpath*：表示包含依赖的类路径下)
+  mapper-locations: classpath:/mapper/**/*.xml
+#  目前ID自增，等后面分库分表在修改
+  global-config:
+    db-config:
+      id-type: auto

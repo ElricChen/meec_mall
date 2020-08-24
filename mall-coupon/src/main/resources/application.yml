@@ -1,0 +1,19 @@
+# mall-coupon
+server:
+  port: 7000
+
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.56.102:3306/meec_mall_sms
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis-plus:
+  #  \u9ED8\u8BA4 >> classpath*:/mapper/**/*.xml (classpath*\uFF1A\u8868\u793A\u5305\u542B\u4F9D\u8D56\u7684\u7C7B\u8DEF\u5F84\u4E0B)
+  mapper-locations: classpath:/mapper/**/*.xml
+  #  \u76EE\u524DID\u81EA\u589E\uFF0C\u7B49\u540E\u9762\u5206\u5E93\u5206\u8868\u5728\u4FEE\u6539
+  global-config:
+    db-config:
+      id-type: auto
+
