@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.Map;
 
 // import org.apache.shiro.authz.annotation.RequiresPermissions;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,11 +28,30 @@ import io.meec.common.utils.R;
  * @email ElricChen@gmail.com
  * @date 2020-08-24 23:10:32
  */
+@Slf4j
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${conpon.user.name}")
+    private String testParam1;
+
+    @Value("${conpon.user.age}")
+    private String testParam2;
+
+
+    // 测试请求
+    @RequestMapping("/clist")
+    public R clist(){
+        CouponEntity couponEntity = new CouponEntity();
+        log.info("testParam1 >> "+testParam1+"  testParam2 >> "+testParam2);
+        couponEntity.setCouponName("测试数据");
+        return R.ok().put("coupons", Arrays.asList(couponEntity));
+    }
+
 
     /**
      * 列表

@@ -26,7 +26,33 @@ class MallProductApplicationTests {
         log.info("保存成功");
         List<BrandEntity> brand_ids = brandService.list(new QueryWrapper<BrandEntity>().eq("brand_id", 1));
         brand_ids.forEach(brandEntity1 -> {
-            System.out.println("brandEntity1 >> "+brandEntity1);
+            System.out.println("brandEntity1 >> " + brandEntity1);
         });
+        if (true) {
+
+        }
+    }
+
+
+    @Test
+    void runs() {
+        System.out.println(test2("5", "1", "9"));
+        System.out.println(test2("5.0", "1", "9"));
+        System.out.println(test2("5.0", "1.5", "9"));
+        System.out.println(test2("1.0", "1.5", "9"));
+    }
+
+    boolean test2(String checkNum, String leftNum, String rightNum) {
+        boolean result = false;
+        Double transferC = Double.valueOf(checkNum);
+        Double transferL = Double.valueOf(leftNum);
+        Double transferR = Double.valueOf(rightNum);
+
+        if (transferC > transferL && transferC < transferR) {
+            result = true;
+        }
+        return result;
+
+
     }
 }

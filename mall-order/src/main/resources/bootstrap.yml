@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: mall-order
+
+  cloud:
+    nacos:
+      config:
+        server-addr: 127.0.0.1:8848
+        file-extension: yaml #指定yaml格式的配置
+      discovery:
+        server-addr: 127.0.0.1:8848
+## ECS已经有nacos,但似乎不能对外暴露
